@@ -19,6 +19,7 @@ const Index = () => {
         "A modern, performance-focused portfolio designed to showcase a content creator's brand, social presence, and creative work.",
       tags: ["Portfolio", "Branding", "Animation", "Frontend"],
       image: project1Image,
+      fallbackImage: `${import.meta.env.BASE_URL}project-1.jpg`,
       link: "https://rwisiidriss.vercel.app/",
     },
     {
@@ -27,6 +28,7 @@ const Index = () => {
         "A professional agency website for Webify TN, focused on delivering clean, fast, and responsive static websites and portfolio solutions.",
       tags: ["Agency", "Business", "Responsive", "Frontend"],
       image: project2Image,
+      fallbackImage: `${import.meta.env.BASE_URL}project-2.jpg`,
       link: "https://www.webify.tn/",
     },
   ];
@@ -73,6 +75,10 @@ const Index = () => {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = `${import.meta.env.BASE_URL}abdou.jpg`;
+                  }}
                 />
               </div>
               <p className="mt-4 text-center text-sm font-medium text-muted-foreground">{t.home.aboutTeaser}</p>
@@ -105,6 +111,10 @@ const Index = () => {
                   className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                   decoding="async"
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = project.fallbackImage;
+                  }}
                 />
               </div>
               <div className="p-5">

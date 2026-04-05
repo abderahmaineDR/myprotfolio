@@ -19,6 +19,7 @@ const Work = () => {
       tags: ["Portfolio", "Branding", "Animation", "Frontend"],
       technologies: [t.home.skills.react, t.home.skills.typescript, t.home.skills.css],
       image: project1Image,
+      fallbackImage: `${import.meta.env.BASE_URL}project-1.jpg`,
       link: "https://rwisiidriss.vercel.app/",
     },
     {
@@ -28,6 +29,7 @@ const Work = () => {
       tags: ["Agency", "Business", "Responsive", "Frontend"],
       technologies: [t.home.skills.html, t.home.skills.css, t.home.skills.javascript],
       image: project2Image,
+      fallbackImage: `${import.meta.env.BASE_URL}project-2.jpg`,
       link: "https://www.webify.tn/",
     },
   ];
@@ -64,6 +66,10 @@ const Work = () => {
                       className="h-full w-full object-cover"
                       loading="lazy"
                       decoding="async"
+                      onError={(event) => {
+                        event.currentTarget.onerror = null;
+                        event.currentTarget.src = project.fallbackImage;
+                      }}
                     />
                   </div>
                 </div>
