@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/i18n/LanguageContext";
 import project1Image from "@/assets/project-1.jpg";
 import project2Image from "@/assets/project-2.jpg";
+import projectMabImage from "@/assets/project-mab-portfolio.jpg";
 
 const Work = () => {
   const { t } = useLanguage();
@@ -31,6 +32,16 @@ const Work = () => {
       image: project2Image,
       fallbackImage: `${import.meta.env.BASE_URL}project-2.jpg`,
       link: "https://www.webify.tn/",
+    },
+    {
+      title: "MAB Portfolio Website",
+      description:
+        "A sleek personal portfolio for Med Amine Benrzig with a premium dark visual identity, multilingual navigation, and polished responsive layout.",
+      tags: ["Portfolio", "UI/UX", "Responsive", "Frontend"],
+      technologies: [t.home.skills.react, t.home.skills.typescript, t.home.skills.css],
+      image: projectMabImage,
+      fallbackImage: `${import.meta.env.BASE_URL}project-mab-portfolio.jpg`,
+      link: "https://aminebenrzig.vercel.app/",
     },
   ];
 
@@ -58,7 +69,7 @@ const Work = () => {
               className="surface-card overflow-hidden"
             >
               <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className={index % 2 === 1 ? "order-2 lg:order-2" : "order-1"}>
+                <div className={index % 2 === 1 ? "order-1 lg:order-2" : "order-1"}>
                   <div className="h-full min-h-[240px] w-full overflow-hidden">
                     <img
                       src={project.image}
@@ -74,7 +85,7 @@ const Work = () => {
                   </div>
                 </div>
 
-                <div className={index % 2 === 1 ? "order-1 lg:order-1" : "order-2"}>
+                <div className={index % 2 === 1 ? "order-2 lg:order-1" : "order-2"}>
                   <div className="p-6 sm:p-8">
                     <div className="mb-4 flex flex-wrap gap-2">
                       {project.tags.map((tag) => (

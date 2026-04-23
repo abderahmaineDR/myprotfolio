@@ -8,6 +8,7 @@ import SkillsTechnologiesShowcase from "@/components/SkillsTechnologiesShowcase"
 import abdouImage from "@/assets/abdou.jpg";
 import project1Image from "@/assets/project-1.jpg";
 import project2Image from "@/assets/project-2.jpg";
+import projectMabImage from "@/assets/project-mab-portfolio.jpg";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -30,6 +31,15 @@ const Index = () => {
       image: project2Image,
       fallbackImage: `${import.meta.env.BASE_URL}project-2.jpg`,
       link: "https://www.webify.tn/",
+    },
+    {
+      title: "MAB Portfolio Website",
+      description:
+        "A sleek personal portfolio for Med Amine Benrzig with a premium dark theme, strong typography, and clear project storytelling.",
+      tags: ["Portfolio", "UI/UX", "Responsive", "Frontend"],
+      image: projectMabImage,
+      fallbackImage: `${import.meta.env.BASE_URL}project-mab-portfolio.jpg`,
+      link: "https://aminebenrzig.vercel.app/",
     },
   ];
 
